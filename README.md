@@ -28,9 +28,27 @@ In this challenge, you will create a Single Page Application complete with Clien
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] Explain the differences between `client-side routing` and `server-side routing`.
-- [ ] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
-- [ ] Mention three tools we can use to make AJAX requests.
+
+- [x] Explain the differences between `client-side routing` and `server-side routing`.
+
+Client-side routing is where an application needs to navigate a user around without sending requests to the server. A popular method for doing this is via the [React Router](https://www.npmjs.com/package/react-router-dom) dependency. It adds 3 objects to state `location`, `history`, and `match`.
+
+Server-side routing is the traditional way websites navigate a user around through multiple request to the server. A user can click an anchor tag, a request is sent to the server, and the response is then loaded on the client.
+
+
+- [x] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+
+  - (HTTP) POST for CREATE (CRUD).
+  - (HTTP) GET for READ (CRUD).
+  - (HTTP) PUT for UPDATE (CRUD).
+  - (HTTP) DELETE for DELETE (CRUD).
+
+
+- [x] Mention three tools we can use to make AJAX requests.
+
+  - [Axios](https://npmjs.com/package/axios)
+  - [jQuery](https://api.jquery.com/jQuery.ajax/)
+  - [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 
 
 ## Project Set Up
