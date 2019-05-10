@@ -18,6 +18,7 @@ const BrowserRouter = react_router_dom.BrowserRouter
 const Route = react_router_dom.Route
 const Smurfs = components.Smurfs
 const SmurfForm = components.SmurfForm
+const Navbar = components.Navbar
 const axios_client = axios.create({ baseURL: 'http://localhost:3333' })
 
 /**
@@ -61,6 +62,8 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
+        <Navbar />
+
         <Route exact path="/" render={(props) =>
           <Smurfs smurfs={this.state.smurfs} /> } />
 

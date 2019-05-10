@@ -5,12 +5,14 @@
  */
 
 const React = require('react')
+const react_router_dom = require('react-router-dom')
 
 /**
  * Constants
  */
 
 const Component = React.Component
+const Link = react_router_dom.Link
 
 /**
  * Define component
@@ -49,6 +51,8 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
+        <Link to="/">Back</Link>
+
         <form onSubmit={this.addSmurf}>
           <input
             onChange={this.handleInputChange}

@@ -6,12 +6,14 @@
 
 const React = require('react')
 const Smurf = require('./Smurf')
+const react_router_dom = require('react-router-dom')
 
 /**
  * Constants
  */
 
 const Component = React.Component
+const Link = react_router_dom.Link
 
 /**
  * Define component
@@ -22,6 +24,9 @@ class Smurfs extends Component {
     return (
       <div className="Smurfs">
         <h1>Smurf Village</h1>
+
+        <Link to="/smurf-form">Add</Link>
+
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
