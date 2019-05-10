@@ -5,6 +5,7 @@
  */
 
 const React = require('react')
+const axios = require('axios')
 const components = require('./components/index')
 
 /**
@@ -12,6 +13,7 @@ const components = require('./components/index')
  */
 
 const Component = React.Component
+const axios_client = axios.create({ baseURL: 'http://localhost:3333' })
 
 /**
  * Import component styles
@@ -31,9 +33,14 @@ class App extends Component {
     }
   }
 
-  // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
-  // Notice what your map function is looping over and returning inside of Smurfs.
-  // You'll need to make sure you have the right properties on state and pass them down to props.
+  componentDidMount() {
+    axios_client({
+      method: 'GET',
+      url: '/smurfs'
+    }).then(res => this.setState({ smurfs: res.data }))
+      .catch(err => console.error(err))
+  }
+
   render() {
     return (
       <div className="App">
