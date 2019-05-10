@@ -1,27 +1,103 @@
-import React, { Component } from 'react';
+'use strict'
 
-import './App.css';
-import SmurfForm from './components/SmurfForm';
-import Smurfs from './components/Smurfs';
+/**
+ * Dependencies
+ */
+
+const React = require('react')
+const axios = require('axios')
+const react_router_dom = require('react-router-dom')
+const components = require('./components/index')
+
+/**
+ * Constants
+ */
+
+const Component = React.Component
+const BrowserRouter = react_router_dom.BrowserRouter
+const Redirect = react_router_dom.Redirect
+const Route = react_router_dom.Route
+const axios_client = axios.create({ baseURL: 'http://localhost:3333' })
+const Smurfs = components.Smurfs
+const SmurfForm = components.SmurfForm
+
+/**
+ * Import component styles
+ */
+
+require('./App.scss')
+
+/**
+ * Define component
+ */
 
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
+
     this.state = {
       smurfs: [],
-    };
+    }
+
+    this.addSmurf = this.addSmurf.bind(this)
+    this.updateSmurf = this.updateSmurf.bind(this)
+    this.removeSmurf = this.removeSmurf.bind(this)
   }
-  // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
-  // Notice what your map function is looping over and returning inside of Smurfs.
-  // You'll need to make sure you have the right properties on state and pass them down to props.
+
+  componentDidMount() {
+    axios_client({
+      method: 'GET',
+      url: '/smurfs'
+    }).then(res => this.setState({ smurfs: res.data }))
+      .catch(err => console.error(err))
+  }
+
+  addSmurf(smurf) {
+    axios_client({
+      method: 'POST',
+      url: '/smurfs',
+      data: smurf
+    }).then(res => this.setState({ smurfs: res.data }))
+      .catch(err => console.log(err))
+  }
+
+  updateSmurf(smurf) {
+    axios_client({
+      method: 'PUT',
+      url: `/smurfs/${smurf.id}`,
+      data: smurf
+    }).then(res => { this.setState({ smurfs: res.data }) })
+      .catch(err => console.log(err))
+  }
+
+  removeSmurf(id) {
+    axios_client({
+      method: 'DELETE',
+      url: `/smurfs/${id}`
+    }).then(res => { this.setState({ smurfs: res.data }) })
+      .catch(err => console.log(err))
+  }
+
   render() {
     return (
-      <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
-      </div>
-    );
+      <BrowserRouter>
+        <Route exact path="/" render={() =>
+          <Redirect to="/smurfs" /> } />
+
+        <Route path="/smurfs" render={(props) =>
+          <Smurfs smurfs={this.state.smurfs}
+                  updateSmurf={this.updateSmurf}
+                  removeSmurf={this.removeSmurf} /> } />
+
+        <Route path="/smurf-form" render={(props) =>
+          <SmurfForm addSmurf={this.addSmurf} /> } />
+      </BrowserRouter>
+    )
   }
 }
 
-export default App;
+/**
+ * Export component
+ */
+
+module.exports = App
