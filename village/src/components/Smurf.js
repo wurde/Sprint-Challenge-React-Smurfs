@@ -1,4 +1,14 @@
-import React from 'react';
+'use strict'
+
+/**
+ * Dependencies
+ */
+
+const React = require('react')
+
+/**
+ * Define component
+ */
 
 const Smurf = props => {
   return (
@@ -7,14 +17,17 @@ const Smurf = props => {
       <strong>{props.height} tall</strong>
       <p>{props.age} smurf years old</p>
     </div>
-  );
-};
+  )
+}
 
 Smurf.defaultProps = {
   name: '',
   height: '',
   age: ''
-};
+}
 
-export default Smurf;
+/**
+ * Export component
+ */
 
+module.exports = Smurf

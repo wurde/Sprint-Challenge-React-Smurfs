@@ -1,7 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+'use strict'
 
-import './index.css';
-import App from './App';
+/**
+ * Dependencies
+ */
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const React = require('react')
+const ReactDOM = require('react-dom')
+const App = require('./App')
+
+/**
+ * Mount component to DOM
+ */
+
+ReactDOM.render(<App />, document.getElementById('root'))

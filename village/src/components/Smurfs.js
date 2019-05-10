@@ -1,6 +1,21 @@
-import React, { Component } from 'react';
+'use strict'
 
-import Smurf from './Smurf';
+/**
+ * Dependencies
+ */
+
+const React = require('react')
+const Smurf = require('./Smurf')
+
+/**
+ * Constants
+ */
+
+const Component = React.Component
+
+/**
+ * Define component
+ */
 
 class Smurfs extends Component {
   render() {
@@ -17,16 +32,20 @@ class Smurfs extends Component {
                 height={smurf.height}
                 key={smurf.id}
               />
-            );
+            )
           })}
         </ul>
       </div>
-    );
+    )
   }
 }
 
 Smurf.defaultProps = {
  smurfs: [],
-};
+}
 
-export default Smurfs;
+/**
+ * Export component
+ */
+
+module.exports = Smurfs
