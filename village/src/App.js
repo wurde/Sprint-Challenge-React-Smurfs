@@ -40,6 +40,8 @@ class App extends Component {
     }
 
     this.addSmurf = this.addSmurf.bind(this)
+    this.updateSmurf = this.updateSmurf.bind(this)
+    this.removeSmurf = this.removeSmurf.bind(this)
   }
 
   componentDidMount() {

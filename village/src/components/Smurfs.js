@@ -46,6 +46,7 @@ class Smurfs extends Component {
                       age={smurf.age}
                       height={smurf.height}
                       key={smurf.id}
+                      removeSmurf={this.props.removeSmurf}
                     />
                   )
                 })}
@@ -58,8 +59,8 @@ class Smurfs extends Component {
   }
 }
 
-Smurf.defaultProps = {
- smurfs: PropTypes.array.isRequired,
+Smurfs.propTypes = {
+  smurfs: PropTypes.array.isRequired,
 }
 
 /**
