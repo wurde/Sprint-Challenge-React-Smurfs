@@ -7,6 +7,7 @@
 const React = require('react')
 const Smurf = require('./Smurf')
 const react_router_dom = require('react-router-dom')
+const styles = require('./styles/index')
 
 /**
  * Constants
@@ -22,7 +23,7 @@ const Link = react_router_dom.Link
 class Smurfs extends Component {
   render() {
     return (
-      <div className="Smurfs">
+      <styles.SmurfsStyle>
         <h1>Smurf Village</h1>
 
         <Link to="/smurf-form">Add</Link>
@@ -40,7 +41,7 @@ class Smurfs extends Component {
             )
           })}
         </ul>
-      </div>
+      </styles.SmurfsStyle>
     )
   }
 }

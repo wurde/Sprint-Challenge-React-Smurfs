@@ -6,6 +6,7 @@
 
 const React = require('react')
 const react_router_dom = require('react-router-dom')
+const styles = require('./styles/index')
 
 /**
  * Constants
@@ -50,7 +51,7 @@ class SmurfForm extends Component {
 
   render() {
     return (
-      <div className="SmurfForm">
+      <styles.SmurfFormStyle>
         <Link to="/">Back</Link>
 
         <form onSubmit={this.addSmurf}>
@@ -74,7 +75,7 @@ class SmurfForm extends Component {
           />
           <button type="submit">Add to the village</button>
         </form>
-      </div>
+      </styles.SmurfFormStyle>
     )
   }
 }

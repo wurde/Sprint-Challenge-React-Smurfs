@@ -16,10 +16,10 @@ const components = require('./components/index')
 const Component = React.Component
 const BrowserRouter = react_router_dom.BrowserRouter
 const Route = react_router_dom.Route
+const axios_client = axios.create({ baseURL: 'http://localhost:3333' })
+const Navbar = components.Navbar
 const Smurfs = components.Smurfs
 const SmurfForm = components.SmurfForm
-const Navbar = components.Navbar
-const axios_client = axios.create({ baseURL: 'http://localhost:3333' })
 
 /**
  * Import component styles
