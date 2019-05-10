@@ -17,6 +17,25 @@ const styled = styled_components.default
  */
 
 let NavbarStyle = styled.div(() => `
+  a {
+    text-decoration: none;
+    color: rgb(76, 94, 228);
+    padding: 10px 20px;
+    width: 100%;
+    text-align: center;
+  }
+
+  a:hover {
+    background-color: #EEE;
+  }
+
+  a:active {
+    background-color: #CCC;
+  }
+
+  a.active {
+    border 2px solid #DDD;
+  }
 `)
 
 /**

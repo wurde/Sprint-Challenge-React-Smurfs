@@ -16,8 +16,16 @@ const styles = require('./styles/index')
 const Navbar = () => {
   return (
     <styles.NavbarStyle>
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/smurf-form">Smurf Form</NavLink>
+      <div className="container">
+        <div className="row">
+          <div className="col-6 d-flex justify-content-center align-items-center p-4">
+            <NavLink to="/smurfs">Smurf List</NavLink>
+          </div>
+          <div className="col-6 d-flex justify-content-center align-items-center p-4">
+            <NavLink to="/smurf-form">Smurf Form</NavLink>
+          </div>
+        </div>
+      </div>
     </styles.NavbarStyle>
   )
 }

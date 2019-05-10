@@ -7,6 +7,7 @@
 const React = require('react')
 const react_router_dom = require('react-router-dom')
 const styles = require('./styles/index')
+const Navbar = require('./Navbar')
 
 /**
  * Constants
@@ -52,29 +53,49 @@ class SmurfForm extends Component {
   render() {
     return (
       <styles.SmurfFormStyle>
-        <Link to="/">Back</Link>
+        <Navbar />
 
-        <form onSubmit={this.addSmurf}>
-          <input
-            onChange={this.handleInputChange}
-            placeholder="name"
-            value={this.state.name}
-            name="name"
-          />
-          <input
-            onChange={this.handleInputChange}
-            placeholder="age"
-            value={this.state.age}
-            name="age"
-          />
-          <input
-            onChange={this.handleInputChange}
-            placeholder="height"
-            value={this.state.height}
-            name="height"
-          />
-          <button type="submit">Add to the village</button>
-        </form>
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <Link to="/">Back</Link>
+              <hr/>
+
+              <form onSubmit={this.addSmurf}>
+                <div className="form-group">
+                  <input
+                    onChange={this.handleInputChange}
+                    placeholder="name"
+                    value={this.state.name}
+                    name="name"
+                    className="form-control"
+                    autoFocus
+                  />
+                </div>
+                <div className="form-group">
+                  <input
+                    onChange={this.handleInputChange}
+                    placeholder="age"
+                    value={this.state.age}
+                    name="age"
+                    className="form-control"
+                  />
+                </div>
+                <div className="form-group">
+                  <input
+                    onChange={this.handleInputChange}
+                    placeholder="height"
+                    value={this.state.height}
+                    name="height"
+                    className="form-control"
+                  />
+                </div>
+
+                <button type="submit" className="btn btn-primary">Add to the village</button>
+              </form>
+            </div>
+          </div>
+        </div>
       </styles.SmurfFormStyle>
     )
   }

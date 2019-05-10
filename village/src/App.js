@@ -15,9 +15,9 @@ const components = require('./components/index')
 
 const Component = React.Component
 const BrowserRouter = react_router_dom.BrowserRouter
+const Redirect = react_router_dom.Redirect
 const Route = react_router_dom.Route
 const axios_client = axios.create({ baseURL: 'http://localhost:3333' })
-const Navbar = components.Navbar
 const Smurfs = components.Smurfs
 const SmurfForm = components.SmurfForm
 
@@ -62,9 +62,10 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <Navbar />
+        <Route exact path="/" render={() =>
+          <Redirect to="/smurfs" /> } />
 
-        <Route exact path="/" render={(props) =>
+        <Route path="/smurfs" render={(props) =>
           <Smurfs smurfs={this.state.smurfs} /> } />
 
         <Route path="/smurf-form" render={(props) =>
