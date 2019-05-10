@@ -60,7 +60,6 @@ app.get('/smurfs', (req, res) => {
 })
 
 app.post('/smurfs', (req, res) => {
-  console.log("req.body", req.body)
   const { name, age, height } = req.body
   const newSmurf = { name, age, height, id: smurf_id }
   if (!name || !age || !height) {
