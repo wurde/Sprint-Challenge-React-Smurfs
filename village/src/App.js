@@ -28,9 +28,12 @@ require('./App.scss')
 class App extends Component {
   constructor(props) {
     super(props)
+
     this.state = {
       smurfs: [],
     }
+
+    this.addSmurf = this.addSmurf.bind(this)
   }
 
   componentDidMount() {
@@ -41,10 +44,19 @@ class App extends Component {
       .catch(err => console.error(err))
   }
 
+  addSmurf(smurf) {
+    axios_client({
+      method: 'POST',
+      url: '/smurfs',
+      data: smurf
+    }).then(res => this.setState({ smurfs: res.data }))
+      .catch(err => console.log(err))
+  }
+
   render() {
     return (
       <div className="App">
-        <components.SmurfForm />
+        <components.SmurfForm addSmurf={this.addSmurf} />
         <components.Smurfs smurfs={this.state.smurfs} />
       </div>
     )

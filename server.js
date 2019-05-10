@@ -13,12 +13,12 @@ const cors = require('cors')
  */
 
 const port = 3333
-const smurf_id = 1
 
 /**
  * Define seed data
  */
 
+let smurf_id = 1
 let smurfs = [
   {
     id: 0,
@@ -60,6 +60,7 @@ app.get('/smurfs', (req, res) => {
 })
 
 app.post('/smurfs', (req, res) => {
+  console.log("req.body", req.body)
   const { name, age, height } = req.body
   const newSmurf = { name, age, height, id: smurf_id }
   if (!name || !age || !height) {
