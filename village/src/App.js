@@ -6,6 +6,7 @@
 
 const React = require('react')
 const axios = require('axios')
+const react_router_dom = require('react-router-dom')
 const components = require('./components/index')
 
 /**
@@ -13,6 +14,10 @@ const components = require('./components/index')
  */
 
 const Component = React.Component
+const BrowserRouter = react_router_dom.BrowserRouter
+const Route = react_router_dom.Route
+const Smurfs = components.Smurfs
+const SmurfForm = components.SmurfForm
 const axios_client = axios.create({ baseURL: 'http://localhost:3333' })
 
 /**
@@ -55,10 +60,13 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <components.SmurfForm addSmurf={this.addSmurf} />
-        <components.Smurfs smurfs={this.state.smurfs} />
-      </div>
+      <BrowserRouter>
+        <Route exact path="/" render={(props) =>
+          <Smurfs smurfs={this.state.smurfs} /> } />
+
+        <Route path="/smurf-form" render={(props) =>
+          <SmurfForm addSmurf={this.addSmurf} /> } />
+      </BrowserRouter>
     )
   }
 }
