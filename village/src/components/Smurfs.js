@@ -6,6 +6,7 @@
 
 const React = require('react')
 const Smurf = require('./Smurf')
+const PropTypes = require('prop-types')
 const react_router_dom = require('react-router-dom')
 const styles = require('./styles/index')
 const Navbar = require('./Navbar')
@@ -58,7 +59,7 @@ class Smurfs extends Component {
 }
 
 Smurf.defaultProps = {
- smurfs: [],
+ smurfs: PropTypes.array.isRequired,
 }
 
 /**

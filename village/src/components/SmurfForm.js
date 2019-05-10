@@ -59,7 +59,6 @@ class SmurfForm extends Component {
           <div className="row">
             <div className="col-12">
               <Link to="/">Back</Link>
-              <hr/>
 
               <form onSubmit={this.addSmurf}>
                 <div className="form-group">

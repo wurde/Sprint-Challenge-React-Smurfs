@@ -5,6 +5,7 @@
  */
 
 const React = require('react')
+const PropTypes = require('prop-types')
 
 /**
  * Define component
@@ -21,9 +22,9 @@ const Smurf = props => {
 }
 
 Smurf.defaultProps = {
-  name: '',
-  height: '',
-  age: ''
+  name: PropTypes.string.isRquired,
+  height: PropTypes.string.isRquired,
+  age: PropTypes.string.isRquired
 }
 
 /**

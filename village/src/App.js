@@ -59,6 +59,23 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
+  updateSmurf(smurf) {
+    axios_client({
+      method: 'PUT',
+      url: `/smurfs/${smurf.id}`,
+      data: smurf
+    }).then(res => { this.setState({ smurfs: res.data }) })
+      .catch(err => console.log(err))
+  }
+
+  removeSmurf(id) {
+    axios_client({
+      method: 'DELETE',
+      url: `/smurfs/${id}`
+    }).then(res => { this.setState({ smurfs: res.data }) })
+      .catch(err => console.log(err))
+  }
+
   render() {
     return (
       <BrowserRouter>
@@ -66,7 +83,9 @@ class App extends Component {
           <Redirect to="/smurfs" /> } />
 
         <Route path="/smurfs" render={(props) =>
-          <Smurfs smurfs={this.state.smurfs} /> } />
+          <Smurfs smurfs={this.state.smurfs}
+                  updateSmurf={this.updateSmurf}
+                  removeSmurf={this.removeSmurf} /> } />
 
         <Route path="/smurf-form" render={(props) =>
           <SmurfForm addSmurf={this.addSmurf} /> } />
